@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="main.css" />
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Assignment 5</title>
+</head>
+
+<body>
+    <div class="back-image">
+        <form id="form1" class="container" action="confirm.html" method="POST">
+            <p id="title">Request Info</p>
+
+            <div><input type="text" id="firstName" name="firstName" placeholder="First Name" required /></div>
+            <div><input type="text" id="lastName" name="lastName" placeholder="Last Name" required /></div>
+            <div><input type="email" id="email" name="email" placeholder="Email" required /></div>
+            <div><input type="tel" id="phone" name="phone" placeholder="Phone" required /></div>
+            
+            <div><label for="campus">Which campus are you interested in?</label></div>
+            <div>
+                <select id="campus" name="campus" required>
+                    <option value="">Please Select...</option>
+                    <option value="campus1">Campus 1</option>
+                    <option value="campus2">Campus 2</option>
+                    <option value="campus3">Campus 3</option>
+                </select>
+            </div>
+
+            <div><label for="workshop">Which workshop would you like to learn more about?</label></div>
+            <div><textarea id="workshop" name="workshop"></textarea></div>
+
+            <p id="privacy">By submitting your information below, you agree to our <span class="gold-text">Terms of Use</span> and <span class="gold-text">Privacy Policy</span>.</p>
+            <div class="btn-container"><button type="submit" class="btn">Request Info</button></div>
+        </form>
+    </div>
+</body>
+
+</html>
