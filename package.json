@@ -1,0 +1,23 @@
+{
+  "name": "5",
+  "version": "1.0.0",
+  "description": "COSC 484 Web-based development final assignment - web application form using the MERN stack for potential customers to fill out and request information about courses.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rr016/Towson-MERN-Assignment.git"
+  },
+  "author": "Rafal Ryczek",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rr016/Towson-MERN-Assignment/issues"
+  },
+  "homepage": "https://github.com/rr016/Towson-MERN-Assignment#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  }
+}
