@@ -1,10 +1,12 @@
 <!-- Rafal Ryczek -->
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <script type="text/javascript" src="myscripts.js"></script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,23 +16,31 @@
 
 <body>
     <div class="back-image">
-        <form id="form1" class="container" action="confirm.html" method="POST">
+        <form id="form1" class="container" action="confirm.html" method="POST" onsubmit="return validation();">
             <p id="title">Request Info</p>
 
-            <div><input type="text" id="firstName" name="firstName" placeholder="First Name" required /></div>
-            <div><input type="text" id="lastName" name="lastName" placeholder="Last Name" required /></div>
-            <div><input type="email" id="email" name="email" placeholder="Email" required /></div>
-            <div><input type="tel" id="phone" name="phone" placeholder="Phone" required /></div>
+            <div><input type="text" id="firstName" name="firstName" placeholder="First Name" /></div>
+            <div id="require-firstName"></div>
+
+            <div><input type="text" id="lastName" name="lastName" placeholder="Last Name" /></div>
+            <div id="require-lastName"></div>
+
+            <div><input type="email" id="email" name="email" placeholder="Email" /></div>
+            <div id="require-email"></div>
+
+            <div><input type="tel" id="phone" name="phone" placeholder="Phone" /></div>
+            <div id="require-phone"></div>
             
             <div><label for="campus">Which campus are you interested in?</label></div>
             <div>
-                <select id="campus" name="campus" required>
+                <select id="campus" name="campus" >
                     <option value="">Please Select...</option>
                     <option value="campus1">Campus 1</option>
                     <option value="campus2">Campus 2</option>
                     <option value="campus3">Campus 3</option>
                 </select>
             </div>
+            <div id="require-campus"></div>
 
             <div><label for="workshop">Which workshop would you like to learn more about?</label></div>
             <div><textarea id="workshop" name="workshop"></textarea></div>

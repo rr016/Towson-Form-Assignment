@@ -10,7 +10,7 @@ body {
 }
 
 .back-image {
-    background-image: url(img/background.jpg);
+    background-image: url(../img/background.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -35,8 +35,9 @@ body {
     font-size: 15px;
     font-weight: bold;
     display: block;
-    margin-left: 10px;
+    margin-left: 20px;
     margin-right: 10px;
+    margin-top: 15px;
 }
 
 #title {
@@ -53,7 +54,7 @@ body {
     margin-left: 20px;
     margin-right: 10px;
     margin-top: 12px;
-    margin-bottom: 12px;
+    margin-bottom: 6px;
     border: none;
     border-radius: 5px;
     background: white;
@@ -98,4 +99,29 @@ body {
 .gold-text {
     color: #0645AD;
     font-weight: bold;
+}
+
+#confirm-text {
+    margin: 0;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+    color: #FFBB00;
+}
+
+#require-firstName, #require-lastName, #require-email, #require-phone, #require-campus {
+    margin-left: 20px;
+    margin-right: 10px;
+    margin-top: 0;
+    margin-bottom: 0;
+    border: none;
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+    color: red;
 }
