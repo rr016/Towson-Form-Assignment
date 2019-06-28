@@ -1,15 +1,19 @@
+// Rafal Ryczek
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Route } from 'react-router-dom'
 import FormPage from './components/FormPage';
 import ConfirmPage from './components/ConfirmPage';
+import AdminPage from './components/AdminPage';
 
 ReactDOM.render(
     <BrowserRouter>
         <React.Fragment>
             <Route exact path="/" component={FormPage} />
-            <Route exact path="/api/confirm" component={ConfirmPage} />
+            <Route exact path="/confirm" component={ConfirmPage} />
+            <Route exact path="/admin" component={AdminPage} />
         </React.Fragment>
     </BrowserRouter>, document.getElementById('root')
 );

@@ -2,8 +2,9 @@
   "name": "5",
   "version": "1.0.0",
   "description": "COSC 484 Web-based development final assignment - web application form using the MERN stack for potential customers to fill out and request information about courses.",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
+    "start": "cd client && npm run build && cd .. && node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,6 +19,9 @@
   "homepage": "https://github.com/rr016/Towson-MERN-Assignment#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongodb": "^3.2.7",
+    "nodemailer": "^6.2.1",
+    "path": "^0.12.7"
   }
 }
