@@ -1,3 +1,5 @@
+// Rafal Ryczek
+
 import React from 'react';
 
 const Navbar = () => {

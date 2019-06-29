@@ -14,11 +14,11 @@ module.exports = function (context) {
 
     app.post('/api/confirm', function (req, res) {
         // Send a confirm email using Nodemailer /*
-        //        sendEmail(req).catch(console.error);          <------------------------------------------------------------
+        sendEmail(req).catch(console.error);
 
         // Send data to database then display confirm page
         req.body['createdOn'] = new Date();
-        req.body['completed'] = false
+        req.body['completed'] = 'false';
         collection.insertOne(req.body)
             .then(doc => res.status(200).redirect('/confirm'))
             .catch(err => res.status(500).send(err));
@@ -47,20 +47,30 @@ module.exports = function (context) {
     }
 
     app.get('/api/customers', function (req, res) {
+        // Send collection objects to client
         let query = req.query || {};
         collection.find(query).toArray()
             .then(results => res.status(200).send(results))
             .catch(err => res.status(500).send(err));
     });
 
-    app.post('/api/update', function (req, res) {
-        //res.json(req.body.btn);
-        collection.deleteOne({ _id: new mongodb.ObjectID(req.body.btn) })
-            .then(doc => res.status(200).redirect('/admin'))
-            .catch(err => res.status(500).send(err));
+    app.post('/api/manage', function (req, res) {
+        if (req.body.btnDelete === undefined) {
+            // Update button was clicked
+            collection.updateOne({ _id: new mongodb.ObjectID(req.body.btnUpdate) }, { $set: { completed: 'true' } })
+                .then(doc => res.status(200).redirect('/admin'))
+                .catch(err => res.status(500).send(err));
+        }
+        else if (req.body.btnUpdate === undefined) {
+            // Delete button was clicked
+            collection.deleteOne({ _id: new mongodb.ObjectID(req.body.btnDelete) })
+                .then(doc => res.status(200).redirect('/admin'))
+                .catch(err => res.status(500).send(err));
+        }
     });
 
     app.get('*', (req, res) => {
+        // Catch all
         res.sendFile(context.path.join(__dirname, 'client/build/index.html'));
     });
 

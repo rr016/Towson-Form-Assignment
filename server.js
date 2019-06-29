@@ -15,12 +15,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.listen(port, function (req, res) {
-    mongodb.connect(db_uri, function(err, db) {
-        if(err) { 
-            console.log(err); 
-            process.exit(1); 
+    mongodb.connect(db_uri, function (err, db) {
+        if (err) {
+            console.log(err);
+            process.exit(1);
         }
         console.log('Application running on http://localhost:' + port);
         require('./routes')({ dbConnection: db, app, path });
-    });  
+    });
 });

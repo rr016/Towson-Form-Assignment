@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './Main.css';
 import Navbar from './Navbar';
+import trash from './img/trash.svg';
 
 class AdminPage extends Component {
     constructor(props) {
@@ -18,7 +19,7 @@ class AdminPage extends Component {
                     email: '',
                     phone: '',
                     createdOn: new Date(),
-                    completed: false
+                    completed: 'false'
                 }
             ],
             recordCount: 0
@@ -39,7 +40,7 @@ class AdminPage extends Component {
         return (
             <div>
                 <Navbar />
-                <form className="back-image-admin" action="/api/update" method="POST">
+                <form className="back-image-admin" action="/api/manage" method="POST">
                     <div className="container-admin">
                         <p className="title">Submissions</p>
                         <table className="table">
@@ -51,6 +52,7 @@ class AdminPage extends Component {
                                     <th>Email Address</th>
                                     <th>Phone Number</th>
                                     <th>Date Submitted</th>
+                                    <th></th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -79,28 +81,25 @@ class AdminPage extends Component {
                     <td>{row.email}</td>
                     <td>{row.phone}</td>
                     <td>{new Date(row.createdOn).toDateString()}</td>
-                    <td><Complete id={this.state.data[idx]._id} /></td>
+                    <td>{this.displayButton(idx)}</td>
+                    <td><button type="submit" name="btnDelete" value={this.state.data[idx]._id}><img src={trash} alt="trash icon" /></button></td>
                 </tr>
             );
         });
 
         return rows;
     }
-}
 
-class Complete extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            id: props.id
+    displayButton = (idx) => {
+        if (this.state.data[idx].completed === 'true') {
+            return (
+                <p>Completed</p>
+            );
+        } else {
+            return (
+                <button className="btn-admin" type="submit" name="btnUpdate" value={this.state.data[idx]._id}>Mark Complete</button>
+            );
         }
-    }
-
-    render() {
-        return (
-            <button className="btn-admin" type="submit" name="btn" value={this.state.id}>Mark Complete</button>
-        );
     }
 }
 
