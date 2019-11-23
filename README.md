@@ -1,4 +1,4 @@
-# Towson-MERN-Assignment
+# Towson-MERN-Assignment ![](https://video-react.js.org/assets/logo.png)
 COSC 484 Web-based development final assignment - web application form using the MERN stack for potential customers to fill out and request information about courses.
 
 ### Assignment Outline:
